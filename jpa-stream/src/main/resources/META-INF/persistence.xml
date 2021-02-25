@@ -6,7 +6,7 @@
 	version="2.0">
 
 	<!-- Persistence Unit -->
-	<persistence-unit name="main-persistence-unit" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="StreamAppUnit" transaction-type="RESOURCE_LOCAL">
 		
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		

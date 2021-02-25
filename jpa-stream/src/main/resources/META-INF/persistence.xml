@@ -6,9 +6,10 @@
 	version="2.0">
 
 	<!-- Persistence Unit -->
-	<persistence-unit name="main-persistence-unit">
+	<persistence-unit name="main-persistence-unit" transaction-type="RESOURCE_LOCAL">
 		
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		
 		<class>fr.training.domain.ExampleJpaEntity</class>
 
 		<properties>

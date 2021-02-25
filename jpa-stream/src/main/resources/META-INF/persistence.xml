@@ -10,7 +10,8 @@
 		
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		
-		<class>fr.training.domain.ExampleJpaEntity</class>
+		<class>fr.training.domain.ArticleEntity</class>
+		<class>fr.training.domain.CategorieEntity</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="objectdb://localhost/my.odb" />

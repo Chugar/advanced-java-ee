@@ -31,10 +31,13 @@ public class ArticleDaoJpaImpl extends DaoJpa implements ArticleDao {
 
 	@Override
 	public boolean deleteById(int id) {
+		
 		ArticleEntity entity = this.em.find(ArticleEntity.class, id);
 		
 		if(entity != null) {
+			this.em.getTransaction().begin();
 			this.em.remove(entity);
+			this.em.getTransaction().commit();
 			return true;
 		}
 		

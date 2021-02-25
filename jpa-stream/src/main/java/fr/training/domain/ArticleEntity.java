@@ -1,12 +1,14 @@
 package fr.training.domain;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 
@@ -28,15 +30,26 @@ public class ArticleEntity {
 	
 	@Column(name = "created_at")
 	private LocalDate createdAt;
+	
+	@ManyToMany(mappedBy = "articles")
+	private List<CategorieEntity> categories;
+	
 
+	
 	public ArticleEntity() {}
 
-	public ArticleEntity(Integer articleId, String author, String content, LocalDate createdAt) {
+
+	public ArticleEntity(Integer articleId, String author, String content, LocalDate createdAt,
+			List<CategorieEntity> categories) {
 		this.articleId = articleId;
 		this.author = author;
 		this.content = content;
 		this.createdAt = createdAt;
+		this.categories = categories;
 	}
+
+
+	
 
 	public Integer getArticleId() {
 		return articleId;

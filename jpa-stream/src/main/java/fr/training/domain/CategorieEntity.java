@@ -16,7 +16,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "categorie")
-public class Categorie {
+public class CategorieEntity {
+	
 	@Id
 	@Column(name = "cat_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,10 +28,10 @@ public class Categorie {
 	
 	@ManyToOne
 	@JoinColumn(name = "cat_id")
-	private Categorie parent;
+	private CategorieEntity parent;
 	
 	@OneToMany(mappedBy = "parent")
-	private List<Categorie> enfants;
+	private List<CategorieEntity> enfants;
 	
 	@ManyToMany
 	@JoinTable(
@@ -40,10 +41,10 @@ public class Categorie {
 			)
 	private List<ArticleEntity> articles;
 
-	public Categorie() {
+	public CategorieEntity() {
 	}
 
-	public Categorie(String nom) {
+	public CategorieEntity(String nom) {
 		this.nom = nom;
 	}
 
@@ -63,19 +64,19 @@ public class Categorie {
 		this.nom = nom;
 	}
 
-	public Categorie getParent() {
+	public CategorieEntity getParent() {
 		return parent;
 	}
 
-	public void setParent(Categorie parent) {
+	public void setParent(CategorieEntity parent) {
 		this.parent = parent;
 	}
 
-	public List<Categorie> getEnfants() {
+	public List<CategorieEntity> getEnfants() {
 		return enfants;
 	}
 
-	public void setEnfants(List<Categorie> enfants) {
+	public void setEnfants(List<CategorieEntity> enfants) {
 		this.enfants = enfants;
 	}
 

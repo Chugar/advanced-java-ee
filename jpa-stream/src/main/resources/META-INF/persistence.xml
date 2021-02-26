@@ -4,31 +4,24 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	<persistence-unit name="StreamAppUnit" transaction-type="RESOURCE_LOCAL">
-		<!-- Fournisseur implémentation JPA -->
+		
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		
-		<!-- Liste des entités à persister (nom des classes complète) -->
 		<class>fr.training.domain.ArticleEntity</class>
 		<class>fr.training.domain.CategorieEntity</class>
 		
 		<properties>
-			<!-- Configuration accès SQL -->
-			<!-- createDatabaseIfNotExist=true -->
-			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3308/libo?serverTimezone=UTC" />
+			
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/basic_jpa?serverTimezone=UTC" />
 			<property name="hibernate.connection.driver" value="com.mysql.jdbc.Driver" />
 			<property name="hibernate.connection.user" value="root" />
-			<property name="hibernate.connection.password" value="root" />
+			<property name="hibernate.connection.password" value="" />
 			
-			<!-- Permet d'exécuter les requêtes DDL pour la génération de la base de données -->
-			<!-- Valeurs possibles : validate, update, create, create-drop -->
-			<!-- <property name="hibernate.hbm2ddl.auto" value="validate" /> -->
-			
-			<!-- On utilise le moteur innoDB -->
+			<property name="hibernate.hbm2ddl.auto" value="create" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
-			
-			<!-- On imprime les requêtes SQL générées par Hibernate dans la console -->
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="false" />
+			
 		</properties>
 	</persistence-unit>
 </persistence>

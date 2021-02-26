@@ -21,7 +21,7 @@ public class CategorieEntity {
 	@Id
 	@Column(name = "cat_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String id;
+	private int id;
 	
 	@Column(name = "cat_nom", length = 50, nullable = false)
 	private String nom;
@@ -48,11 +48,11 @@ public class CategorieEntity {
 		this.nom = nom;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

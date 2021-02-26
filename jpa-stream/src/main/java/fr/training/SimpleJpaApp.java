@@ -1,5 +1,8 @@
 package fr.training;
 
+import fr.training.domain.CategorieEntity;
+import fr.training.service.CategorieService;
+
 public class SimpleJpaApp {
 
 	public static void main(String[] args) {

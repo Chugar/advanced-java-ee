@@ -9,11 +9,11 @@ import fr.training.domain.CategorieEntity;
 
 public class CategorieDaoJpaImpl extends DaoJpa implements CategorieDao {
 	
-	private static final String SELECT_ALL = "SELECT c FROM Categorie c";
+	private static final String SELECT_ALL = "SELECT c FROM CategorieEntity c";
 	
-	private static final String SELECT_BY_ID = "SELECT c FROM Categorie c WHERE c.id = :id";
+	private static final String SELECT_BY_ID = "SELECT c FROM CategorieEntity c WHERE c.id = :id";
 	
-	private static final String DELETE = "DELETE FROM Categorie c WHERE c.id = :id";
+	private static final String DELETE = "DELETE FROM CategorieEntity c WHERE c.id = :id";
 
 	@Override
 	public List<CategorieEntity> findAll() {

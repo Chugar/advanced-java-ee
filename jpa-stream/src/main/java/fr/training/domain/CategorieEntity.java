@@ -27,7 +27,7 @@ public class CategorieEntity {
 	private String nom;
 	
 	@ManyToOne
-	@JoinColumn(name = "cat_id")
+	@JoinColumn(name = "parent_id")
 	private CategorieEntity parent;
 	
 	@OneToMany(mappedBy = "parent")

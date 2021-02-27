@@ -1,58 +1,39 @@
 package fr.training;
 
-import fr.training.domain.ArticleEntity;
-import fr.training.domain.CategorieEntity;
-import fr.training.service.CategorieService;
+import java.time.LocalDate;
 
-
-import static fr.training.util.StreamData.*;
-
-import java.util.Map;
-import java.util.Optional;
-import java.util.stream.Collectors;
+import fr.training.domain.PokemonEntity;
+import fr.training.service.PokemonService;
 
 public class SimpleJpaApp {
 
+	
 	public static void main(String[] args) {
 		
-		// Printing result
-		ARTICLES.forEach(System.out::println);
-		
-		
-		// Convert to map
-		Map<Integer, String> map = ARTICLES
-				.stream()
-				.collect(Collectors.toMap(ArticleEntity::getArticleId, ArticleEntity::getAuthor));
-		
-		
-		// Map entry set
-				map.entrySet().forEach(System.out::println);
-		
-				
-		// Total
-		Integer total = ARTICLES.stream()
-			.map(art -> art.getArticleId())
-			.reduce( (acc, curr) -> acc + curr)
-			.orElse(0);
-		System.out.println(total);
-		
-		
-		
-		// Find the biggest
-		Integer maximum = NUMBERS.stream()
-			.max(Integer::compare)
-			.orElse(0);
-		System.out.println(maximum);
-		
-		
-		
-		// Find the smallest
-		Integer minimum = NUMBERS.stream()
-				.min(Integer::compare)
-				.orElse(0);
-			System.out.println(minimum);
-		
+		initializePokemons();
 		
 	}
+	
+	
+	// TODO:  call me once then delete me
+	public static void initializePokemons() {
+		
+		PokemonService pokemonService = new PokemonService();
+		
+		PokemonEntity pokemon1 = new PokemonEntity("Pikachu", LocalDate.of(1994, 7, 13));
+		PokemonEntity pokemon2 = new PokemonEntity("Lucario", LocalDate.of(1998, 4, 17));
+		PokemonEntity pokemon3 = new PokemonEntity("Charizard", LocalDate.of(1980, 1, 21));
+		PokemonEntity pokemon4 = new PokemonEntity("Chalgoumi", LocalDate.of(1729, 1, 21));
 
+		
+		pokemonService.save(pokemon1);
+		pokemonService.save(pokemon2);
+		pokemonService.save(pokemon3);
+		pokemonService.save(pokemon4);
+
+
+
+	}
+
+	
 }

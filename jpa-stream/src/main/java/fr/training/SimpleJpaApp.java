@@ -10,7 +10,7 @@ public class SimpleJpaApp {
 	
 	public static void main(String[] args) {
 		
-		initializePokemons();
+		// initializePokemons();
 		
 	}
 	

@@ -20,10 +20,10 @@ public class PokemonEntity {
 	@Column(name = "id_pokemon")
 	private Integer id;
 
-	@Column(name = "name", nullable = false)
+	@Column(name = "name", length = 50, nullable = false)
 	private String name;
 
-	@Column(name = "birthday")
+	@Column(name = "birthday", nullable = false)
 	private LocalDate birthday;
 	
 	
@@ -70,6 +70,7 @@ public class PokemonEntity {
 	     return ReflectionToStringBuilder.toString(this);
 	 }
 
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -80,6 +81,7 @@ public class PokemonEntity {
 		return result;
 	}
 
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

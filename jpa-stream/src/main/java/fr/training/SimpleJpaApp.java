@@ -13,7 +13,11 @@ public class SimpleJpaApp {
 
 	public static void main(String[] args) {
 		
-		initializePokemons();
+		// 			
+		DresseurService dresseurService = new DresseurService();
+		DresseurEntity dreusseur = dresseurService.findById(1);
+		System.out.println(dreusseur.getPrenom());
+
 
 		
 

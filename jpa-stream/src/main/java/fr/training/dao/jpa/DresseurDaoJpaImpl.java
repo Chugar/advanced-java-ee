@@ -1,5 +1,6 @@
 package fr.training.dao.jpa;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.RollbackException;
@@ -11,7 +12,15 @@ public class DresseurDaoJpaImpl extends DaoJpa implements DresseurDao {
 
 	@Override
 	public List<DresseurEntity> findAll() {
-		return null;
+		
+		List<DresseurEntity> resultList = this.em.createQuery("SELECT d FROM DresseurEntity d", DresseurEntity.class)
+												.getResultList();
+		
+		if(resultList.isEmpty()) {
+			return Collections.emptyList();
+		}
+		
+		return resultList;
 	}
 
 	@Override

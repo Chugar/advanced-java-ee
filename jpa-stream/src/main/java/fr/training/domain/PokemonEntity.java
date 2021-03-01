@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
@@ -25,6 +26,9 @@ public class PokemonEntity {
 
 	@Column(name = "birthday", nullable = false)
 	private LocalDate birthday;
+	
+	@ManyToOne
+	private DresseurEntity dresseur;
 	
 	
 	

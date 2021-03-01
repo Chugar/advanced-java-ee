@@ -1,10 +1,8 @@
 package fr.training.service;
 
-import java.time.DayOfWeek;
 import java.util.List;
 
 import fr.training.dao.DaoProvider;
-import fr.training.dao.jpa.DaoJpa;
 import fr.training.domain.PokemonEntity;
 
 public class PokemonService implements IService<PokemonEntity> {
@@ -16,8 +14,7 @@ public class PokemonService implements IService<PokemonEntity> {
 
 	@Override
 	public PokemonEntity findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return DaoProvider.getPokemonDao().findById(id);
 	}
 
 	@Override

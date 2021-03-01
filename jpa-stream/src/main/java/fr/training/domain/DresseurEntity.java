@@ -45,11 +45,8 @@ public class DresseurEntity {
 
 	
 	
-	public DresseurEntity() {
-	}
+	public DresseurEntity() { }
 
-	
-	
 	
 	public int getId() {
 		return id;

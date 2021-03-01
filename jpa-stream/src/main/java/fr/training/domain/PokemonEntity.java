@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -28,9 +29,8 @@ public class PokemonEntity {
 	private LocalDate birthday;
 	
 	@ManyToOne
+	@JoinColumn(name = "dresseur_id")
 	private DresseurEntity dresseur;
-	
-	
 	
 
 	public PokemonEntity() {
@@ -40,9 +40,6 @@ public class PokemonEntity {
 		this.name = name;
 		this.birthday = birthday;
 	}
-	
-	
-	
 
 	public Integer getId() {
 		return id;
@@ -68,7 +65,14 @@ public class PokemonEntity {
 		this.birthday = birthday;
 	}
 	
-	
+	public DresseurEntity getDresseur() {
+		return dresseur;
+	}
+
+	public void setDresseur(DresseurEntity dresseur) {
+		this.dresseur = dresseur;
+	}
+
 	@Override
 	public String toString() {
 	     return ReflectionToStringBuilder.toString(this);

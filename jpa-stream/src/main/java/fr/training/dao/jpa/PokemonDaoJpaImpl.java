@@ -12,9 +12,9 @@ public class PokemonDaoJpaImpl extends DaoJpa implements PokemonDao {
 
 	@Override
 	public List<PokemonEntity> findAll() {
-		
+		String query = "SELECT p FROM PokemonEntity p";
 		List<PokemonEntity> pokemons = this.em
-				.createQuery("SELECT p FROM PokemonEntity p", PokemonEntity.class)
+				.createQuery(query, PokemonEntity.class)
 				.getResultList();
 		
 		if( pokemons.isEmpty() ) {
@@ -27,7 +27,16 @@ public class PokemonDaoJpaImpl extends DaoJpa implements PokemonDao {
 	
 	@Override
 	public PokemonEntity findById(int id) {
-		return null;
+		String query = "SELECT p FROM PokemonEntity p WHERE p.id = :id";
+		PokemonEntity pokemon = this.em.createQuery(query, PokemonEntity.class)
+				.setParameter("id", id)
+				.getSingleResult();
+		
+		if (pokemon == null) {
+			return null;
+		}
+				
+		return pokemon;
 	}
 
 	@Override

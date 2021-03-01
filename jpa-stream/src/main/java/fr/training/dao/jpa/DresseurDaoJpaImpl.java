@@ -9,11 +9,11 @@ import fr.training.domain.DresseurEntity;
 
 public class DresseurDaoJpaImpl extends DaoJpa implements DresseurDao {
 	
-	private static final String SELECT_ALL = "SELECT d FROM Dresseur d";
+	private static final String SELECT_ALL = "SELECT d FROM DresseurEntity d";
 
-	private static final String SELECT_BY_ID = "SELECT d FROM Dresseur d WHERE d.id = :id";
+	private static final String SELECT_BY_ID = "SELECT d FROM DresseurEntity d WHERE d.id = :id";
 	
-	private static final String DELETE = "DELETE FROM Dresseur d WHERE d.id = :id";
+	private static final String DELETE = "DELETE FROM DresseurEntity d WHERE d.id = :id";
 	
 	@Override
 	public List<DresseurEntity> findAll() {

@@ -29,7 +29,7 @@ public class PokemonEntity {
 	private LocalDate birthday;
 	
 	@ManyToOne
-	@JoinColumn(name = "dresseur_id")
+	@JoinColumn(name = "id_dresseur")
 	private DresseurEntity dresseur;
 	
 
